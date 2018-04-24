@@ -1,0 +1,30 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+  <mat-step *ngFor="let problem of problems | keys" [stepControl]="firstFormGroup">
+    <!--<form [formGroup]="firstFormGroup">-->
+      <ng-template matStepLabel>{{problems[problem].description}}</ng-template>
+      <mat-card>
+        <h2>Potential loss of money: {{problems[problem].cost}} euro</h2>
+        <img class="col-lg-6" *ngIf="problems[problem].img" src="./assets/{{problems[problem].img}}.jpg">
+        <img class="col-lg-6" *ngIf="problems[problem].img" src="./assets/{{problems[problem].img}}_proper.jpg">
+        <mat-checkbox #checkbox (change)="checkedPart(problem, checkbox)">This part is in good condition!</mat-checkbox>
+      </mat-card>
+      <!--<mat-form-field>-->
+        <!--<input matInput placeholder="Check 1" formControlName="firstCtrl" required>-->
+      <!--</mat-form-field>-->
+      <div>
+        <button *ngIf="problemsKeys.indexOf(problem) > 0" mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    <!--</form>-->
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Summarize</ng-template>
+    <p>Total amount of potential car maintenance would be:</p>
+    <h2>{{summ}} euro</h2>
+    <img src="./assets/car-keys.jpg">
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

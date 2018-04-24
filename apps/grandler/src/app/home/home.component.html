@@ -1,0 +1,60 @@
+<h2>{{searchTerm$ | async}}</h2>
+
+<ng-template #loading>
+  <div class="container"
+       fxLayout
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutGap="10px"
+       fxLayoutGap.xs="0">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</ng-template>
+
+<section *ngIf="loaded else loading" class="text-left animated bounce">
+  <ng-container *ngFor="let blogItem of blogItems$ | async">
+    <div class="author-box"
+         (mouseenter)="mouseEnter(blogItem)"
+         *ngIf="!searchTerm || blogItem.title.match(searchTerm)"
+    >
+      <!--Name-->
+      <a href="#">
+        <h3 class="h3-responsive text-center">{{blogItem.title}}</h3>
+      </a>
+      <hr>
+      <div class="row">
+        <!--Avatar-->
+        <div class="col-12 col-sm-2">
+          <img
+            src="./assets/vw.jpg"
+            class="img-fluid rounded-circle z-depth-2"
+            [@mouseHover]="hoverItem && (hoverItem.id === blogItem.id ? 'increase' : 'default')"
+          >
+        </div>
+        <!--Author Data-->
+        <div class=" col-12 col-sm-10">
+          <p><strong>{{blogItem.brief}}</strong></p>
+          <p>{{blogItem.description}}</p>
+          <div class="personal-sm">
+            <a class="email-ic"><i class="fa fa-home"> </i></a>
+            <a class="fb-ic"><i class="fa fa-facebook"> </i></a>
+            <a class="tw-ic"><i class="fa fa-twitter"> </i></a>
+            <a class="gplus-ic"><i class="fa fa-google-plus"> </i></a>
+            <a class="li-ic"><i class="fa fa-linkedin"> </i></a>
+            <a class="email-ic"><i class="fa fa-envelope-o"> </i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>
+

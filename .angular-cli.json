@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
+  "project": {
+    "name": "angular-cli-lazyload",
+    "npmScope": "grandler",
+    "latestMigration": "20180405-add-workspace-schematic-command"
+  },
+  "apps": [
+    {
+      "root": "apps/grandler/src",
+      "outDir": "dist/apps/grandler",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../../../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+        "../../../node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+        "../../../apps/grandler/src/styles.scss"
+      ],
+      "scripts": [
+        "../../../node_modules/chart.js/dist/Chart.js",
+        "../../../node_modules/hammerjs/hammer.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "name": "grandler",
+      "tags": []
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "apps/grandler/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/grandler/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {},
+    "schematics": {
+      "collection": "@nrwl/schematics",
+      "postGenerate": "npm run format",
+      "newProject": [
+        "app",
+        "lib"
+      ]
+    }
+  }
+}

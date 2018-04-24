@@ -1,0 +1,14 @@
+:host{
+  .invalid {
+    background-color: red;
+  }
+  img {
+    width: 40%;
+    height: 50%;
+    border-radius: 15px;
+    margin-right: 100px;
+  }
+  mat-checkbox {
+    display: block;
+  }
+}
