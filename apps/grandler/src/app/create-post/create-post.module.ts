@@ -9,6 +9,7 @@ import { CreatePostEffects } from './effects/create-post.effects';
 import { CreatePostPageComponent } from './create-post/create-post-page/create-post-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FileCrudModule } from '../shared/file-crud/file-crud.module';
 
 @NgModule({
   imports: [
@@ -18,9 +19,14 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
     MatButtonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    FileCrudModule,
     StoreModule.forFeature('createPost', fromCreatePost.reducer),
     EffectsModule.forFeature([CreatePostEffects])
   ],
-  declarations: [CreatePostComponent, CreatePostPageComponent]
+  declarations: [
+    CreatePostComponent,
+    CreatePostPageComponent
+  ]
 })
-export class CreatePostModule { }
+export class CreatePostModule {
+}
