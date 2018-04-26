@@ -22,6 +22,7 @@ import { HomeModel } from './home/home.model';
 import { AuthService } from './services/auth.service';
 import { RouterEffects } from './router/router.effects';
 import { AuthGuardService } from './services/auth-guard.service';
+import { FirebaseFileUploadService } from './services/firebase-file-upload.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     MDBBootstrapModule.forRoot(),
     HomeModel
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, FirebaseFileUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

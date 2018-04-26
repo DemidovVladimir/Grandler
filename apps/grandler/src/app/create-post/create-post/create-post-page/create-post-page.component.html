@@ -1,9 +1,2 @@
-<form [formGroup]="createPost">
-  <mat-form-field>
-    <input matInput formControlName="title" placeholder="Название поста">
-  </mat-form-field>
-  <div class="file-upload">
-    <button type="button" mat-button (click)="imgFileInput.click()">Добавить главное фото</button>
-    <input hidden type="file" #imgFileInput (change)="onFileChange($event)"/>
-  </div>
-</form>
+<app-form-upload></app-form-upload>
+<app-list-upload></app-list-upload>
