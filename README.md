@@ -40,3 +40,5 @@ https://tburleson-layouts-demos.firebaseapp.com/#/docs
 https://github.com/hellotunmbi/angular2-authentication-firebase
 ### This is NX App
 https://nrwl.io/nx/guide-nx-workspace
+### Color palette
+http://tools.medialab.sciences-po.fr/iwanthue/
